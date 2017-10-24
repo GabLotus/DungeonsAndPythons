@@ -20,8 +20,8 @@ class Player(persistent.Persistent):
         else:
             return "Alive"
 
-    def addCondition(self, condition, duration):
-        self.conditions.append(Condition(condition, duration))
+    def addCondition(self, name, counter):
+        self.conditions.append(Condition(name, counter))
 
     def decrementConditions(self):
         newConditions = []

@@ -1,10 +1,8 @@
 import ZODB, ZODB.FileStorage
-from campaignObject import Campaign
+from campaign import Campaign
 
 storage = ZODB.FileStorage.FileStorage('mycampaign.fs')
 db = ZODB.DB(storage)
 connection = db.open()
-campaign = connection.root
-print(campaign.name)
-print(campaign.campaignObject.test_array)
-print(campaign.campaignObject.party.players)
+campaign_root = connection.root
+print(campaign_root.campaign.party.players)

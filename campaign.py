@@ -1,13 +1,23 @@
-import ZODB, ZODB.FileStorage, transaction, persistent
-from campaignObject import Campaign
+import persistent
+from party import Party
+from lore import Lore
+class Campaign(persistent.Persistent):
+    def __init__(self, name = ""):
+        self.name = name
+        self.lore = Lore()
 
+    def newParty(self):
+        self.party = Party()
+        self._p_changed = True
 
-storage = ZODB.FileStorage.FileStorage('mycampaign.fs')
-db = ZODB.DB(storage)
-connection = db.open()
-campaign = connection.root
+    def addLoreEntry(self, entry, content):
+        self.lore.addLoreEntry(entry, content)
+        self._p_changed = True
 
-#campaign.campaignObject = Campaign()
-campaign.campaignObject.party.addPlayer("Gab")
-campaign.campaignObject._p_changed = True
-transaction.commit()
+    def addPlayer(self, name):
+        self.party.addPlayer(name)
+        self._p_changed = True
+
+    def setName(self, name):
+        self.name = name
+        self._p_changed = True

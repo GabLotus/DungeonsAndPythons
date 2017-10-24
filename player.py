@@ -33,4 +33,3 @@ class Player(persistent.Persistent):
         self.conditions = newConditions
         self._p_changed = True
 
-

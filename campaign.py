@@ -8,7 +8,6 @@ connection = db.open()
 campaign = connection.root
 
 #campaign.campaignObject = Campaign()
-campaign.campaignObject.test_array.append("three")
+campaign.campaignObject.party.addPlayer("Gab")
 campaign.campaignObject._p_changed = True
 transaction.commit()
-

@@ -7,3 +7,4 @@ connection = db.open()
 campaign = connection.root
 print(campaign.name)
 print(campaign.campaignObject.test_array)
+print(campaign.campaignObject.party.players)

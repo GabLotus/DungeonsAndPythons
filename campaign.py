@@ -1,6 +1,7 @@
 import persistent
 from party import Party
 from lore import Lore
+#comment to see if clone worked
 class Campaign(persistent.Persistent):
     def __init__(self, name = ""):
         self.name = name

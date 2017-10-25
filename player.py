@@ -25,7 +25,7 @@ class Player(persistent.Persistent):
 
     def decrementConditions(self):
         newConditions = []
-        for index, condition in enumerate(self.conditions):
+        for condition in self.conditions:
             condition.counter -= 1
             if condition.counter > 0:
                 newConditions.append(condition)
